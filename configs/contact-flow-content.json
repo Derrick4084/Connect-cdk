@@ -1,0 +1,334 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "16d0ebb9-ec29-406b-8e65-0965f2c5fd4b",
+  "Metadata": {
+      "entryPointPosition": {
+          "x": 40,
+          "y": 40
+      },
+      "ActionMetadata": {
+          "16d0ebb9-ec29-406b-8e65-0965f2c5fd4b": {
+              "position": {
+                  "x": 128,
+                  "y": 43.2
+              }
+          },
+          "9e9d54a1-f931-4ab7-aede-65d7e093257d": {
+              "position": {
+                  "x": 336,
+                  "y": 47.2
+              },
+              "overrideConsoleVoice": false
+          },
+          "b1207abc-e93d-4b5e-b9c7-6e918434055b": {
+              "position": {
+                  "x": 1022.4,
+                  "y": 340
+              }
+          },
+          "296a0551-c2d1-4d9f-bc1c-3796a3bae299": {
+              "position": {
+                  "x": 546.4,
+                  "y": 47.2
+              }
+          },
+          "8f999c9c-0c9e-4a78-a3ab-6eb8b93782f1": {
+              "position": {
+                  "x": 767.2,
+                  "y": 48
+              },
+              "parameters": {
+                  "LexV2Bot": {
+                      "AliasArn": {
+                          "displayName": "Prod",
+                          "useLexBotDropdown": true,
+                          "lexV2BotName": "HelpDeskBot"
+                      }
+                  }
+              },
+              "useLexBotDropdown": true,
+              "lexV2BotName": "HelpDeskBot",
+              "lexV2BotAliasName": "Prod",
+              "conditionMetadata": [
+                  {
+                      "id": "77b437fc-016d-4a58-94bb-4bdaaab91d01",
+                      "operator": {
+                          "name": "Equals",
+                          "value": "Equals",
+                          "shortDisplay": "="
+                      },
+                      "value": "PasswordReset"
+                  },
+                  {
+                      "id": "999255fc-1673-4247-9900-6fc35d9bf519",
+                      "operator": {
+                          "name": "Equals",
+                          "value": "Equals",
+                          "shortDisplay": "="
+                      },
+                      "value": "NetworkIssue"
+                  }
+              ]
+          },
+          "32192b2c-f3ee-4de3-a1a1-ccf5d4be3d31": {
+              "position": {
+                  "x": 1503.2,
+                  "y": -42.4
+              }
+          },
+          "00d10656-4c8a-4cc4-8d13-580c71379e53": {
+              "position": {
+                  "x": 1020,
+                  "y": -48
+              }
+          },
+          "PasswordQueue": {
+              "position": {
+                  "x": 1234.4,
+                  "y": -42.4
+              },
+              "isFriendlyName": true,
+              "parameters": {
+                  "QueueId": {
+                      "displayName": "PasswordReset"
+                  }
+              },
+              "queue": {
+                  "text": "PasswordReset"
+              }
+          },
+          "d1b2e3c6-e1a5-4a9f-bfb7-7d37fae381de": {
+              "position": {
+                  "x": 1510.4,
+                  "y": 156
+              }
+          },
+          "c6235f1d-d0e5-40b9-a113-72c12eca98ab": {
+              "position": {
+                  "x": 1016.8,
+                  "y": 138.4
+              }
+          },
+          "ca51274e-62d0-4640-9f52-b476a4252ef5": {
+              "position": {
+                  "x": 1806.4,
+                  "y": 104.8
+              }
+          },
+          "NetworkQueue": {
+              "position": {
+                  "x": 1241.6,
+                  "y": 155.2
+              },
+              "isFriendlyName": true,
+              "parameters": {
+                  "QueueId": {
+                      "displayName": "NetworkIssue"
+                  }
+              },
+              "queue": {
+                  "text": "NetworkIssue"
+              }
+          }
+      },
+      "Annotations": [],
+      "name": "Help Desk",
+      "description": "",
+      "type": "contactFlow",
+      "status": "PUBLISHED",
+      "hash": {}
+  },
+  "Actions": [
+      {
+          "Parameters": {
+              "FlowLoggingBehavior": "Enabled"
+          },
+          "Identifier": "16d0ebb9-ec29-406b-8e65-0965f2c5fd4b",
+          "Type": "UpdateFlowLoggingBehavior",
+          "Transitions": {
+              "NextAction": "9e9d54a1-f931-4ab7-aede-65d7e093257d"
+          }
+      },
+      {
+          "Parameters": {
+              "TextToSpeechVoice": "Joanna"
+          },
+          "Identifier": "9e9d54a1-f931-4ab7-aede-65d7e093257d",
+          "Type": "UpdateContactTextToSpeechVoice",
+          "Transitions": {
+              "NextAction": "296a0551-c2d1-4d9f-bc1c-3796a3bae299"
+          }
+      },
+      {
+          "Parameters": {},
+          "Identifier": "b1207abc-e93d-4b5e-b9c7-6e918434055b",
+          "Type": "DisconnectParticipant",
+          "Transitions": {}
+      },
+      {
+          "Parameters": {
+              "Text": "Welcome to the IT Help desk."
+          },
+          "Identifier": "296a0551-c2d1-4d9f-bc1c-3796a3bae299",
+          "Type": "MessageParticipant",
+          "Transitions": {
+              "NextAction": "8f999c9c-0c9e-4a78-a3ab-6eb8b93782f1",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {
+              "Text": "How can I help?",
+              "LexV2Bot": {
+                  "AliasArn": "botaliasarn"
+              }
+          },
+          "Identifier": "8f999c9c-0c9e-4a78-a3ab-6eb8b93782f1",
+          "Type": "ConnectParticipantWithLexBot",
+          "Transitions": {
+              "NextAction": "b1207abc-e93d-4b5e-b9c7-6e918434055b",
+              "Conditions": [
+                  {
+                      "NextAction": "00d10656-4c8a-4cc4-8d13-580c71379e53",
+                      "Condition": {
+                          "Operator": "Equals",
+                          "Operands": [
+                              "PasswordReset"
+                          ]
+                      }
+                  },
+                  {
+                      "NextAction": "c6235f1d-d0e5-40b9-a113-72c12eca98ab",
+                      "Condition": {
+                          "Operator": "Equals",
+                          "Operands": [
+                              "NetworkIssue"
+                          ]
+                      }
+                  }
+              ],
+              "Errors": [
+                  {
+                      "NextAction": "b1207abc-e93d-4b5e-b9c7-6e918434055b",
+                      "ErrorType": "NoMatchingCondition"
+                  },
+                  {
+                      "NextAction": "b1207abc-e93d-4b5e-b9c7-6e918434055b",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {},
+          "Identifier": "32192b2c-f3ee-4de3-a1a1-ccf5d4be3d31",
+          "Type": "TransferContactToQueue",
+          "Transitions": {
+              "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "QueueAtCapacity"
+                  },
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {
+              "Text": "We're putting you in a queue to help you with password reset."
+          },
+          "Identifier": "00d10656-4c8a-4cc4-8d13-580c71379e53",
+          "Type": "MessageParticipant",
+          "Transitions": {
+              "NextAction": "PasswordQueue",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {
+              "QueueId": "passwordqueuearn"
+          },
+          "Identifier": "PasswordQueue",
+          "Type": "UpdateContactTargetQueue",
+          "Transitions": {
+              "NextAction": "32192b2c-f3ee-4de3-a1a1-ccf5d4be3d31",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {},
+          "Identifier": "d1b2e3c6-e1a5-4a9f-bfb7-7d37fae381de",
+          "Type": "TransferContactToQueue",
+          "Transitions": {
+              "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "QueueAtCapacity"
+                  },
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {
+              "Text": "We're putting you in a queue to help you with your network issues."
+          },
+          "Identifier": "c6235f1d-d0e5-40b9-a113-72c12eca98ab",
+          "Type": "MessageParticipant",
+          "Transitions": {
+              "NextAction": "NetworkQueue",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      },
+      {
+          "Parameters": {},
+          "Identifier": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+          "Type": "DisconnectParticipant",
+          "Transitions": {}
+      },
+      {
+          "Parameters": {
+              "QueueId": "networkqueuearn"
+          },
+          "Identifier": "NetworkQueue",
+          "Type": "UpdateContactTargetQueue",
+          "Transitions": {
+              "NextAction": "d1b2e3c6-e1a5-4a9f-bfb7-7d37fae381de",
+              "Errors": [
+                  {
+                      "NextAction": "ca51274e-62d0-4640-9f52-b476a4252ef5",
+                      "ErrorType": "NoMatchingError"
+                  }
+              ]
+          }
+      }
+  ]
+}
